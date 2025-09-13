@@ -1,0 +1,10 @@
+### All session information
+In session 2 it creates keypairs,firewall : secruity groups(inbound)
+### how to connect with ip
+username 3.25.173.18
+ssh -i <private-key> ec2-user@ip
+ssh -i daws-86s ec2-user@3.25.173.18
+In normal ssh root@10.36.63.1
+
+/c/devops/daws-86s -> absolute path. starts from root directory
+daws-86s  --> relative. make sure you have that file exist file
