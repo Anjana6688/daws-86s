@@ -29,6 +29,13 @@ If you store it in local device/server what are the consequencies?
 3. version control if we commit changes to the same code then we don't know what inital changes we have done?
 
 To overcome these we use Repositories/version control systems.
+Types of version control systems?
+1.SVN(Drawbacks is we can push directly to the SVN we can store it in Local)
+2.git (It is a concept developed by linus torwarlds and leave it as open source and this is further used by below vendors)
+GitHub -->It is also a opensource and it is purchased by Microsoft
+Bitbucket
+Gitlab
+
 
 
 
