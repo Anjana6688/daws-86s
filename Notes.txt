@@ -8,3 +8,5 @@ In normal ssh root@10.36.63.1
 
 /c/devops/daws-86s -> absolute path. starts from root directory
 daws-86s  --> relative. make sure you have that file exist file
+
+
