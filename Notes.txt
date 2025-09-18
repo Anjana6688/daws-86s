@@ -36,6 +36,14 @@ GitHub -->It is also a opensource and it is purchased by Microsoft
 Bitbucket
 Gitlab
 
+For windows we use git bash.
+How to download it in local device?
+git clone <Url of the code which you want to download in your Laptop>
+If we give ls -la command we will find .git hidden files which means its a git repo.
+In Git there is a concept called Branching,if we want to do any changes to the existing code instead of applying changes to direct code we can create branches and dummy brnaches we can apply changes and if its wroks fine we will commit to main branch)
+
+
+
 
 
 
