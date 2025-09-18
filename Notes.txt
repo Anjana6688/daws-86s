@@ -9,4 +9,27 @@ In normal ssh root@10.36.63.1
 /c/devops/daws-86s -> absolute path. starts from root directory
 daws-86s  --> relative. make sure you have that file exist file
 
+Session -18:
+==========================================================================================
+Topics Covered in this session:
+
+Automation Goals : 
+1.Speed
+2.Accuracy
+3.no human errors
+3.consistency
+4.sacalbility,can work for infinte servers 
+5.documentation (Everything is recorded what happend includig history)
+6.reusability
+
+Where to store Scripts?
+If you store it in local device/server what are the consequencies?
+1. Secuirty issue,
+2.Can't share with others and if server or system crashes we will lose the scripts.
+3. version control if we commit changes to the same code then we don't know what inital changes we have done?
+
+To overcome these we use Repositories/version control systems.
+
+
+
 
