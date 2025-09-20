@@ -1,3 +1,10 @@
 SESSION-6:
 ===========================
 Process MAnagement
+
+
+Session: 7
+=======================
+Connect server via AMI
+We need to name our AMI as devops-practice and then under communities we need to select redhat devops -practice.
+
