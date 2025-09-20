@@ -13,5 +13,8 @@ Linux comannds are combination of  <command-name> <inputs> <options>
 |ps -ef | it will give pid details of the process|
 |top|it will give how much cpu and memory used|
 |nproc| no.of of cpu connected|
+|kill |kill pid |kill 123|
+|kill -9 pid|force kill the procedd if kill not works|
+
 
 
