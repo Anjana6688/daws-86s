@@ -10,7 +10,7 @@ In normal ssh root@10.36.63.1
 daws-86s  --> relative. make sure you have that file exist file
 
 SESSION -6:
-==================================================================================================
+=============================================================================================================================================================
 process Management:
 ===================
 ls -l -> Suppose if you give ls -l command and then it will initiate one process and assign ID, i,e PID(Process Instance ID) and display the result.
@@ -69,6 +69,125 @@ tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      
 22 is the port number
 p it will give process id.
 
+3 tier architecture:
+====================
+Desktop vs Webbased Applicationn
+
+Desktop:
+if anything is inside your laptop you can't acess anywhere except 
+security issues.
+storage in local, if crashes no recovery.
+no data security.if we lost
+
+Webbased Application
+shtorage is cloud based so you can acess anywhere.
+
+Generic based example for 3 tier evloution:
+==========================================================
+
+Road side hotel(1 tier)
+---------------------
+cooking,order management,money collection...(everything is handled by single person)
+if crowd is more he can't handle
+
+hotel(2-tier)
+--------------
+owner and cook is there
+ cook has to take the order and cook the food 
+if crowd is more handling difficult
+
+Restaurant Model:
+==================
+Captain -> welcomes the guest and shows them a table
+Waiter -> taking order, order management
+Chef -> Cooking
+Waiter --> Garnish, and delivers the order
+
+even if crowd is more ,everyone has thier individual responsibilites;
+
+Raw format(SQL or NoSQL) -> Application Servers(Java, Python, .NET, NodeJS, Golang) -> Web Servers -> Load Balncer(Captain)
+
+If we put all the database and application,web server in one server them it is (1-tier application)
+drawbacks:if traffic is more then servver faces issues the 2 tier evaluvated:
+Everything in single server is called as 1 tier application
+Database -> Application and Webserver (2 tier)
+Database -> Application Server -> Webserver and Load Balancer (3 tier)( 3 different servers)
+
+So they decoupled the 1 and 2 tier applications:
+
+Web Tier/Frontend: 
+=====================
+load Balancer --> which server is vacant/available it will tell
+webserver -->ngnix installed in the webserver and place the web application here the techonologies are HTML,CSS and javscript.
+It's main job to display.
+
+Application server/middleware:
+=========================================
+The code which are accessing database are running in this application tier  so there is would be no security access.
+java,.net,python,c++goland,Nodejs.
+In application server there are multiple CRUD operations going on how much fast it will do their operation that much fast the server responds.
+CRUD
+======
+1. Create operation ( when customer sign in )
+2. Read operation
+3. Update operation
+4. Delete operation 
+
+Database Tier/backend server :
+=======================
+It will store the Data its kind of raw data 
+
+MySQL
+Oracle
+MSSQL
+Postgress
+
+MongoDB
+Cassandra
+
+Redis
+
+ActiveMQ
+Websphere MQ
+
+SESSION:7
+===================================================================================================================================================================
+
+We are using Amazon AMI(Amazon Machine Image)
+devops-practice
+What is Image?
+Image is everything around us.
+Image =OS+Some required softwares.
+suppose if we buy laptop it will preinstalled
+Linux id OS or kernel?
+==========================
+Mac = Hardware+Mac Os
+in mac we can't run other OS so they are advertising/selling their harware and OS.
+Dell =hardware+anyos (our wish)
+
+Linus Torwvlds completely developed a Kernel from the scratch using C language. 
+
+Kernel = a component that connects with Hardware
+OS = Kernel + some utilities or applications for user
+popular OS on Linux:
+Centos, Fedora, Ubuntu, Android, Oracle Suse, Redhat
+The above all took the kernel and developed their individual OS.
+ Redhat family
+===========================
+opensource VS Enterprise
+Opensource -> free and community driven. we need to wait for fix
+Enterprise -> We pay money for support. if there are defects immidiately we get help
+Enterprise = Opensource + Support
+Enterprise = Opensource + Support
+
+Redhat = Kernel + Application Utilities + Support
+
+Amazon Linux == Redhat == Centos == Fedora == Almalinux
+
+devops-practice = RHEL based
+
+username=ec2-user 
+Password=DevOps321
 
 
 
@@ -76,7 +195,7 @@ p it will give process id.
 
 
 Session -18:
-==========================================================================================
+==================================================================================================================================================================
 Topics Covered in this session:
 
 Automation Goals : 
