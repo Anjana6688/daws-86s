@@ -9,6 +9,39 @@ In normal ssh root@10.36.63.1
 /c/devops/daws-86s -> absolute path. starts from root directory
 daws-86s  --> relative. make sure you have that file exist file
 
+SESSION -6:
+==================================================================================================
+ls -l -> Suppose if you give ls -l command and then it will initiate one process and assign ID, i,e PID(Process Instance ID) and display the result.
+
+TL -> assigned task to Senior Engineer
+TL is his parent for that task, Senior Engineer is Child
+
+TL creates one process and his process ID PPID (Parent process Instance ID)
+TL assigns this to Senior Engineer. PID(Process Instance ID)
+
+ps -->process started by the current user.
+If you give sleep 10 means the system will not respond untill 10 sec if you give any commands it wont showw untill 10secs completed after that it will show.
+[ ec2-user@ip-172-31-19-109 ~ ]$ sleep 10
+grndsnmsd
+grep
+grep *
+
+There are two process:
+
+1.Foreground --> Blocks the current screen will not allow to do anything. - Runs directly in the terminal and occupies it until completion.
+Example: - ls  This command lists directory contents and runs in the foreground.
+
+2. Background -->Runs behind the scenes, allowing you to continue using the terminal.
+The below example is sleep 60 & we have used & makes to runs in backround and we can use terminal as well
+AnjanaRajasekhar@DESKTOP-NQ5FK5B MINGW64 /c/devops/daws-86s
+$ sleep 60 &
+[1] 1937
+AnjanaRajasekhar@DESKTOP-NQ5FK5B MINGW64 /c/devops/daws-86s
+$ pwd
+/c/devops/daws-86s
+
+
+
 Session -18:
 ==========================================================================================
 Topics Covered in this session:
