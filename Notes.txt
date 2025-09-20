@@ -11,6 +11,8 @@ daws-86s  --> relative. make sure you have that file exist file
 
 SESSION -6:
 ==================================================================================================
+process Management:
+===================
 ls -l -> Suppose if you give ls -l command and then it will initiate one process and assign ID, i,e PID(Process Instance ID) and display the result.
 
 TL -> assigned task to Senior Engineer
@@ -27,8 +29,7 @@ grep
 grep *
 
 There are two process:
-
-1.Foreground --> Blocks the current screen will not allow to do anything. - Runs directly in the terminal and occupies it until completion.
+1. Foreground --> Blocks the current screen will not allow to do anything. - Runs directly in the terminal and occupies it until completion.
 Example: - ls  This command lists directory contents and runs in the foreground.
 
 2. Background -->Runs behind the scenes, allowing you to continue using the terminal.
@@ -39,6 +40,38 @@ $ sleep 60 &
 AnjanaRajasekhar@DESKTOP-NQ5FK5B MINGW64 /c/devops/daws-86s
 $ pwd
 /c/devops/daws-86s
+
+top -->it will give list of all process by monitoring what we will observe?
+1. High traffic
+10 users, 10% CPU, 25% RAM
+100 users, 20% CPU, 40% RAM
+
+2. Problems in application
+10 users, 20% CPU, 40% RAM
+if a task runs it takes CPU and RAM, if it is completed then it should release CPU and RAM.
+Sometime application will not release these resources, then we need to fix the application
+
+fix steps:
+1. kill the process first and then restart
+2. get all the logs, app logs, server logs, etc..
+3. restart the server or application
+
+kill PID -> Request
+kill -9 PID --> force kill(demand)
+
+Network Management:
+======================
+ netstat -ltnp  -- it will give the port details of running or not
+ l-->list
+t-->tcp(which is related to internet)
+n -->it will give port number:
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1252/sshd: /usr/sbi
+22 is the port number
+p it will give process id.
+
+
+
+
 
 
 
