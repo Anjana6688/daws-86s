@@ -15,6 +15,7 @@ Linux comannds are combination of  <command-name> <inputs> <options>
 |nproc| no.of of cpu connected|
 |kill |kill pid |kill 123|
 |kill -9 pid|force kill the procedd if kill not works|
+| netstat -ltnp |it will give port details of running/not|
 
 
 
