@@ -10,6 +10,8 @@ Linux comannds are combination of  <command-name> <inputs> <options>
 |cat| cat > file-name | enter the text... press enter and then ctrl+d|
 |>| redirection|
 |>>| don't replace, just add/append|
-|
+|ps -ef | it will give pid details of the process|
+|top|it will give how much cpu and memory used|
+|nproc| no.of of cpu connected|
 
 
