@@ -189,15 +189,17 @@ devops-practice = RHEL based
 username=ec2-user 
 Password=DevOps321
 
-Project: -Expense
+PROJECT-Expense App.
 ===========================
+https://github.com/daws-86s/expense-documentation.git
+
 As we are designing 3-tier,
 for databse we are using MYsql
 for application server we are using Node Js 
 
 Database/backend tier:
 ===========================
-if any applicaion need database first for we are create database server downlaoding MYsql
+For any application we need database first for that we are going to create a database server using MYsql
 Database Server -> it is physical server
 Server == Box == Node
 We have created a instance in aws named as Database and we need install database server.
