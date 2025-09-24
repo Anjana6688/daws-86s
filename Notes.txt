@@ -286,6 +286,8 @@ cd /app
 
 Session:8
 ==================================================================================================================================================================
+In this session we need to arrange a connect btwn front end and backend.
+
 devops engineer focus is web tier and application tier.
 how the DB server is connect to application server??
 We need to through via private IP because it is
@@ -306,21 +308,167 @@ python -> requirements.txt
 go -> build.go
 java -> pom.xml
 python -> requirements.txt
-Lets download the dependencies.
+Lets download the dependencies/packages/libraries.
+for that we are using npm install -> node package manager -> it expects package.json in the current folder.
 
-cd /exapp
- npm install
+
+for normal applications 
 dnf install nginx
 systemctl start nginx
 
+if custom application, then how to start/stop/restart
 
+we can create systemctl services for custom applications
+
+/etc/systemd/system/<preferred-name>.service
+using the above command and we can give preferred service
+
+vim /etc/systemd/system/backend.service
+you can use this link https://github.com/daws-86s/expense-documentation/blob/main/backend.MD
+
+while connecting to backend to database it's not connecting due to firewall issue.so we need to arrange firewall connection in aws under security groups.
+
+[ root@ip-172-31-17-39 /app/schema ]# mysql -h 172.31.19.124 -uroot -pExpenseApp@1 < /app/schema/backend.sql 
+
+The ip address is mysql private address becoz we need to connect backend to databse.
+mysql: [Warning] Using a password on the command line interface can be insecure.
+
+After that how to check got to database server and check transaction database is created or not 
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| transactions       |
++--------------------+
+5 rows in set (0.01 sec)
+mysql> use transactions
+use transactions
+^C
+mysql> use transactions;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++------------------------+
+| Tables_in_transactions |
++------------------------+
+| transactions           |
++------------------------+
+1 row in set (0.00 sec)
+check the status whether its running or not.
+
+[ root@ip-172-31-17-39 /app/schema ]# systemctl status  backend
+● backend.service - Backend Service
+     Loaded: loaded (/etc/systemd/system/backend.service; enabled; preset: disabled)
+     Active: active (running) since Wed 2025-09-24 13:25:09 UTC; 13s ago
+   Main PID: 2636 (node)
+      Tasks: 7 (limit: 4015)
+     Memory: 54.3M
+        CPU: 392ms
+     CGroup: /system.slice/backend.service
+             └─2636 /bin/node /app/index.js
+
+Sep 24 13:25:09 ip-172-31-17-39.ec2.internal systemd[1]: Started Backend Service.
+Sep 24 13:25:09 ip-172-31-17-39.ec2.internal snoopy[2636]: [uid:1002 sid:2636 tty:(none) cwd:/ filename:/bin/node]: /bin/node /app/index.js
+Sep 24 13:25:10 ip-172-31-17-39.ec2.internal backend[2636]: { "timestamp" : 1758720310, "msg" : "App Started on Port 8080" }
+
+
+
+now we need to restart systemctl restart backend
+
+[ root@ip-172-31-17-39 /app/schema ]# ps -ef|grep node
+
+expense     2636       1  0 13:25 ?        00:00:00 /bin/node /app/index.js
+root        2654    1404  0 13:27 pts/0    00:00:00 grep --color=auto node
+
+we can see node.js is running.
+
+
+[ root@ip-172-31-17-39 /app/schema ]# netstat -lntp
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1257/sshd: /usr/sbi
+tcp6       0      0 :::22                   :::*                    LISTEN      1257/sshd: /usr/sbi
+tcp6       0      0 :::8080                 :::*                    LISTEN      2636/node
+
+backend applications mostly uses port no 8080
+
+Troubleshoot steps when backend and Database are not connected:
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+to check the connectivity telent <ip> port  number
+login to backend server and use above command for databse ip address and here database server is mysql and its port number is 3306
+[ root@ip-172-31-17-39 /app/schema ]# telnet 172.31.19.124 3306
+Trying 172.31.19.124...
+Connected to 172.31.19.124.
+Escape character is '^]'.
+J
+8.0.43▒s>~_
+
+If it is not connected then check firewall is open/not and then check database is up and running.
+
+
+Now Database and backend are connected we need to connect to frontend;
+for frontend we are using ngnix:
+
+nginx -> famous webserver and reverse proxy
+===========================================
+
+Important or predefined directories in NGINX
+
+
+/usr/share/nginx/html -> default directory where you keep frontend code
+/etc/nginx -> nginx configuration
+folow these steps in the link:https://github.com/daws-86s/expense-documentation/blob/main/frontend.MD
+
+if you want to change the port of nginx where you will change?
+Answer: under this path /etc/nginx  there is a file called nginx.conf this consists nginx configuration details. we can change port number here.
+
+But instead of touching the actual file we can add our configuration under default.d 
+
+vim /etc/nginx/default.d/expense.conf
+proxy_http_version 1.1;
+
+location /api/ { proxy_pass http://localhost:8080/; }
+
+location /health {
+  stub_status on;
+  access_log off;
+}
+
+Modified:
+/api request is always for backend.
+
+proxy_http_version 1.1;
+
+location /api/ { proxy_pass http://172.31.17.39:8080/; }
+
+location /health {
+  stub_status on;
+  access_log off;
+}
+
+Session:9
+==================================================================================================================================================================
+
+
+
+Interview question 
+==================================================================================================================================================================
+if you want to change the port of nginx where you will change?
+Answer: under this path /etc/nginx  there is a file called nginx.conf this consists nginx configuration details. we can change port number here.
 
 
 
 
 Session -14:
 ==================================================================================================================================================================
-Topics Covered in this session:
+Topics Covered in this session: git,
 
 Automation Goals : 
 1.Speed
