@@ -453,8 +453,23 @@ location /health {
   access_log off;
 }
 
-Session:9
+                                                                   SESSION:9
 ==================================================================================================================================================================
+
+DNS:
+       1. If you delete server then the ip address will be changed so if you try to customised your service then we need to Keep on change the to avoid this there            is a service called DNS(Domain Name System).
+          For Ex: If you login to Amazon then it will connect to IP adress as part DNS but for Human readability we can only see the Amazon.in
+       2. These DNS is Handeled by ICANN -> Internet corporation for assigned names and numbers -> Non profit organisation
+TLD: 
+     1. .com .in .org .net .io .edu .us .uk .shop .ai
+     2. .in -> GOV of India ,.us .uk,.ai ,.tv -> Gov of Tuvalu
+     3. The above domains are handeled by respective countries
+     4. Every domains have some authorised by some registors(mediators) (Go daddy,Hostinger,aws ..etc)
+     5. So TLD (the authorised countries) will pay commision to these registors.
+     6. The Doamin AUthorised .fun TLD so we will shift authority of this domain to AWS.
+     7.For automation aws authorization if we have for our domain it will be easy so we are going to shift authorities by changing the name servers.
+
+
 
 
 
