@@ -469,6 +469,30 @@ TLD:
      6. The Doamin AUthorised .fun TLD so we will shift authority of this domain to AWS.
      7.For automation aws authorization if we have for our domain it will be easy so we are going to shift authorities by changing the name servers.
 
+NGINX:
+       1. It is a http/webserver (written code displayed)
+       2. Reverse Proxy
+       3. Load Balancer
+
+   Forward proxy
+============
+client side(anonymous identity)
+provide restricted access
+traffic control
+	Laptop -> VPN(company proxy)(block facebook, instagram, etc.)
+	
+Reverse proxy
+=============
+hide server identity(security reasons)
+SSL termination
+Caching server
+
+Laptop -> ISP -> Download the movie from torrents -> Cache into ISP servers
+
+Nginx is used as reverse proxy as well as load balancer
+
+
+
 
 
 
