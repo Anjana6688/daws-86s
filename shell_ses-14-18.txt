@@ -1,0 +1,115 @@
+
+                                                      Session -14:
+==================================================================================================================================================================
+Automation Goals : 
+1.Speed
+2.Accuracy
+3.no human errors
+3.consistency
+4.sacalbility,can work for infinte servers 
+5.documentation (Everything is recorded what happend includig history)
+6.reusability
+
+Where to store Scripts?
+If you store it in local device/server what are the consequencies?
+1. Secuirty issue,
+2.Can't share with others and if server or system crashes we will lose the scripts.
+3. version control if we commit changes to the same code then we don't know what inital changes we have done?
+
+To overcome these we use Repositories/version control systems.
+Types of version control systems?
+1.SVN(Drawbacks is we can push directly to the SVN we can store it in Local)
+2.git (It is a concept developed by linus torwarlds and leave it as open source and this is further used by below vendors)
+GitHub -->It is also a opensource and it is purchased by Microsoft
+Bitbucket
+Gitlab
+
+For windows we use git bash.
+How to download it in local device?
+git clone <Url of the code which you want to download in your Laptop>
+
+AnjanaRajasekhar@DESKTOP-NQ5FK5B MINGW64 /c/devops/daws-86s
+$ git clone https://github.com/Anjana6688/Shell-Prac-Daws-86s.git
+Cloning into 'Shell-Prac-Daws-86s'...
+warning: You appear to have cloned an empty repository.
+
+If we give ls -la command we will find .git hidden files which means its a git repo.
+In Git there is a concept called Branching,if we want to do any changes to the existing code instead of applying changes to direct code we can create branches and dummy brnaches we can apply changes and if its wroks fine we will commit to main branch)
+IDE tool
+eclipse
+notepad++
+vscode
+
+How code to be push?
+vscode -->workspace --> staging area --> commit to local repo --> central repo
+
+what is Staging area?
+It's a temporary area ,where we can stage the required files for commit so if you think still needs to changes in the code you can do it here.
+clone the repo
+add to staging area -> git add
+commit to local -> git commit -
+
+what is local commit?
+commit into local repository nothing but laptop. commit time will be logged, who commited will be logged, why they commited also will be logged
+
+push to central/remote repo?
+
+push to central repo..others can just run git pull(pull the changes from central to local repo
+
+git clone vs git pull
+=====================
+clone -> first time downloading the code then we can use clone
+pull -> if you did any changes in the same code and if you want to down load thenjust pull the changes
+
+staging area -> git add <file-name> by using this command it will track your scripts in your local PC
+AnjanaRajasekhar@DESKTOP-NQ5FK5B MINGW64 /c/devops/daws-86s/repos/Shell-Prac-Daws-86s (main)
+$ git status
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        helloworld.sh
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+AnjanaRajasekhar@DESKTOP-NQ5FK5B MINGW64 /c/devops/daws-86s/repos/Shell-Prac-Daws-86s (main)
+$ git add helloworld.sh
+warning: in the working copy of 'helloworld.sh', LF will be replaced by CRLF the next time Git touches it
+
+
+local commit -> git commit -m "first commit, hello world started"
+The code is still in the local but what are the changes you are doing we can commit it which means its simply store what are your inital change and we can observe in git log.
+
+push to central repo -> git push origin main
+It will push the code from local repo(git bash )central repo (git hub).
+
+steps followed till now
+1. signup to github
+2. install vs code
+3. open folder in vs code where you store all repos
+create repo in github
+4. clone the repo
+5. do some code
+6. add to staging area
+7. commit to local repo
+8. push to central repo
+                                                      SESSION-15
+=======================================================================================================================================================================
+All scripts are in git repo:https://github.com/Anjana6688/Shell-Prac-Daws-86s/tree/main#
+ git add . ; git commit -m "variable with arugments" ; git push origin main
+
+Variable Declaration:
+=======================
+VAR_NAME=VALUE
+$VAR_NAME
+${VAR_NAME}
+ex: PERSON1="SAIRAM"
+if you want to pass the aruguments via CLI you can use $1 ,$2 and in cli you can <script.sh> ramu somu
+For Example:
+           PERSON1=$1
+           PERSON2=$2
+--> read command we can use incase of user input it has many features suppose password we can enter without printing in the CLI.
+
+
