@@ -1,0 +1,16 @@
+SHELL SCRIPT:
+================
+Below all these special variable will be ask in interview.
+If i want pass multiple inputs to the script you can use below lines
+echo "All variables passed to the script: $@"
+echo "All variables passed to the script: $*"
+
+If you want to print the script name use below comnd
+echo "Script name: $0"
+ramaining commands are self explinatory
+echo "Current directory: $PWD"
+echo "Who is running this: $USER"
+echo "Home directory of user: $HOME"
+echo "PID of this script: $$"
+sleep 50 &
+echo "PID of the last command in background is: $!"
