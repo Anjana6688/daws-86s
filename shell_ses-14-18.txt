@@ -106,10 +106,89 @@ VAR_NAME=VALUE
 $VAR_NAME
 ${VAR_NAME}
 ex: PERSON1="SAIRAM"
-if you want to pass the aruguments via CLI you can use $1 ,$2 and in cli you can <script.sh> ramu somu
+if you want to pass the aruguments via CLI you can use $1 ,$2 and in CLI you can <script.sh> ramu somu
 For Example:
            PERSON1=$1
            PERSON2=$2
 --> read command we can use incase of user input it has many features suppose password we can enter without printing in the CLI.
+ Environment Variables:
+===========================
+Envronment varibles are persists/active untill the session running.
+if you want to add the environment variables permanently you can define that variables under home folder you can give ls -la 
+then you can see the hidden files in that edit the bashrc file
+vim .bashrc
+add your environment variable ---> export COURSE="DevOps"
+and then source it source .bashrc after sourcing if you exit the session also we can see the variable.
+
+Contained within the shell in which they are defined and not inherited by child processes.
+Purpose: They are commonly used for:
+Storing configuration parameters (e.g., database credentials, API keys).
+Defining paths for executables (e.g., PATH).
+Setting system-wide or user-specific preferences.
+
+Common Environment Variables:
+PATH: Specifies directories where the shell searches for executable commands.
+HOME: The user's home directory.
+USER or LOGNAME: The name of the current user.
+LANG: The current locale settings.
+TERM: The current terminal emulation.
+
+Special Variables:
+=====================
+Special variables are already defined variables in shell
+Below all these special variable will be ask in interview.
+If i want pass multiple inputs to the script you can use below lines
+echo "All variables passed to the script: $@"
+echo "All variables passed to the script: $*"
+
+If you want to print the script name use below comnd
+echo "Script name: $0"
+ramaining commands are self explinatory
+echo "Current directory: $PWD"
+echo "Who is running this: $USER"
+echo "Home directory of user: $HOME"
+echo "PID of this script: $$"
+sleep 50 &
+echo "PID of the last command in background is: $!"
+
+command: sh 08-Var-Special.sh anjana hahsjjkfdsj bvmjfvhjdfkghgf
+OUTPUT:
+======
+All variables passed to the script: anjana hahsjjkfdsj bvmjfvhjdfkghgf
+All variables passed to the script: anjana hahsjjkfdsj bvmjfvhjdfkghgf
+Script name: 08-Var-Special.sh
+Current directory: /home/ec2-user/Shell-Prac-Daws-86s
+Who is running this: ec2-user
+Home directory of user: /home/ec2-user
+PID of this script: 2295
+PID of the last command in background is: 2296
+
+Data Types:
+==============
+There is NO Datatypes in shell script.Generally all scripts will take as string.
+But based on our inputs shell individually thing about their data type.
+for example:
+NUMBER1=200
+NUMBER2=300
+NUMBER3="anjana"
+Here though you defined as character for NUMBER3 it will treat as numberic becoz below we are doing is addition.so it will conside number 3 as 0
+
+SUM=$(($NUMBER1+$NUMBER2+$NUMBER3))
+
+ARRAYS:
+========
+Arrays in shell scripts allow the storage of multiple values within a single variable. 
+
+Ex: MY_ARRAY=("ANJANA" "Pranavi" "SAIRAM")
+Want to print array syntax: echo "${MY_ARRAY[0]}
+0 is for particular index, 0=anjana,1=pranavi,2=sairam
+Print all elements use below command:
+echo "Printing all family members ${MY_ARRAY[@]}"
+Print only one element
+echo "KID in our family:${MY_ARRAY[1]}"
+
+
+
+
 
 
