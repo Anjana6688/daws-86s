@@ -21,3 +21,17 @@ Hashicorp configuration language syntax:
 {
 key ="value"
 }
+
+resource "type_of_resource" "name-of-resource" {
+	
+	key = value
+	
+}
+
+terraform init -> downloads the provider, intialise terraform
+We need to use terraform provider.tf code in our repository then need to use this command .
+you can find the code in https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
+terraform plan -> It will give us a plan that what it is going to do
+terraform apply -> creates the infra as given in the plan
+terraform apply -auto-approve
+terraform destroy -auto-approve
