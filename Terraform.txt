@@ -1,0 +1,23 @@
+Why not Ansible is used for Infra?
+
+Ansible can create infra, but it can't manage/update infra because of no state management feature available in ansible, originally created for configuration management not good for infra management..
+Use terraform for infra creation, once servers are created by terraform handover them to ansible, ansible completes configuration in the server
+
+Terraform: Terraform is an open-source Infrastructure as Code (IaC) tool created by HashiCorp,HCL -> Hashicorp configuration language
+
+Key features and benefits:
+=================================
+Version control
+Automatic CRUD
+Consistent infra -> DEV, QA, UAT, PRE-PROD, PERF, PROD
+Inventory -> What are the services we are using in cloud
+Cost optimisation
+Time saving and no human errors
+Dependency -> SG, EC2 and then R53
+Modular reusable infra
+
+Hashicorp configuration language syntax:
+--------------------------------------------
+{
+key ="value"
+}
