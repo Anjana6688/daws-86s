@@ -1,0 +1,16 @@
+Terraform:
+While aws configure due to unable configure properly few hindarance are came.
+INtially we need to create access keys the below link 
+https://repost.aws/knowledge-center/create-access-key
+to resolve i have create an AMI user and then Gave Permissions.
+Steps for permission :
+To assign the AdministratorAccess policy to an IAM user in AWS, follow these steps:
+Sign in to the AWS Management Console: Use your root account or an IAM user with sufficient permissions to manage IAM users and policies.
+Navigate to the IAM console: From the AWS Management Console, search for "IAM" in the search bar and select the IAM service.
+Select Users: In the navigation pane on the left, under "Access management," choose "Users."
+Choose the target IAM user: Click on the name of the IAM user to whom you want to assign AdministratorAccess.
+Add Permissions: On the user's details page, select the "Permissions" tab.
+Attach Policies Directly: Choose "Add permissions" and then select "Attach policies directly."
+Search for AdministratorAccess: In the search bar provided, type "AdministratorAccess" and press Enter.
+Select the policy: Check the box next to the AdministratorAccess AWS managed policy.
+Add Permissions: Click "Add permissions" to attach the policy to the selected IAM user.
