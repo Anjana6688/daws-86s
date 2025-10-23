@@ -35,3 +35,13 @@ terraform plan -> It will give us a plan that what it is going to do
 terraform apply -> creates the infra as given in the plan
 terraform apply -auto-approve
 terraform destroy -auto-approve
+
+Variables:
+==============
+Syntax for vailable:
+
+variable "variable_name" {
+	default = "value-of-variable"
+}
+
+If you neeed to call the variable use var.variable_name
