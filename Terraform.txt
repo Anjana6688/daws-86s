@@ -49,9 +49,12 @@ Note: Variable names should be anything our wish but when we give resource name 
 
 We have written sample code for creating ec2 and security groups reference from terraform doc.
 Also variable priority like 
-1.cmd
-2..tfvar
-3. .tf files
+1. command line variable values have first prefernce
+2. terraform.tfvars (this we need to give same file no changes to be done.
+3. env variable TF_VAR_<variable_name>
+4. default value
+5. finally prompt
+
 which means if you define an existing variable in cmd it will take the value from command line.
 you can check with terraform doc for cmd line.
 
