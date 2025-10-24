@@ -45,3 +45,4 @@ variable "variable_name" {
 }
 
 If you neeed to call the variable use var.variable_name
+Note: Variable names should be anything our wish but when we give resource name thats should be as in terraform documentory
