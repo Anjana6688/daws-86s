@@ -45,4 +45,13 @@ variable "variable_name" {
 }
 
 If you neeed to call the variable use var.variable_name
-Note: Variable names should be anything our wish but when we give resource name thats should be as in terraform documentory
+Note: Variable names should be anything our wish but when we give resource name thats should be as in terraform 
+
+We have written sample code for creating ec2 and security groups reference from terraform doc.
+Also variable priority like 
+1.cmd
+2..tfvar
+3. .tf files
+which means if you define an existing variable in cmd it will take the value from command line.
+you can check with terraform doc for cmd line.
+
