@@ -60,6 +60,7 @@ which means if you define an existing variable in cmd it will take the value fro
 you can check with terraform doc for cmd line.
 
 Conditions:
+============
 Condition-syintax condition ? true_value : false_value
 
 in variable.tf i have defined as variable 
@@ -73,4 +74,19 @@ then the variable i have defined as dev so after i have applied the terraform pl
 terraform Plan -Output 
 instance_state                       = (known after apply)
       + instance_type                        = "t3.micro"
+Loop:
+==========
+In Terraform there count word which will represents a loop and create multiple environments..
+It works with List more frequently.
+SO i have created three instances with different names for that i have done
+i have created a variable.tf
+variable "instances" {
+    default = [ "Mongodb", "Reddis", "Mysql" ]
+}
+and in loop.tf
+tags = {
+        Name = var.instances[count.index]
+        Terraform = "true"
+    }
 
+I have added the count.index which means when index is 0 then it will create Mongodb. viseversa forother index as well.
