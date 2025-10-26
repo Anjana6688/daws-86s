@@ -15,7 +15,8 @@ Cost optimisation
 Time saving and no human errors
 Dependency -> SG, EC2 and then R53
 Modular reusable infra
-
+Session-30
+================
 Hashicorp configuration language syntax:
 --------------------------------------------
 {
@@ -57,4 +58,19 @@ Also variable priority like
 
 which means if you define an existing variable in cmd it will take the value from command line.
 you can check with terraform doc for cmd line.
+
+Conditions:
+Condition-syintax condition ? true_value : false_value
+
+in variable.tf i have defined as variable 
+variable "environment" {
+    default = "dev"
+}
+then i have added a condition in ec2.tf like
+    instance_type = var.environment == "dev" ? "t3.micro" : "t3.medium" 
+then the variable i have defined as dev so after i have applied the terraform plan then then i can get the t3.micro instance as that is the true conditon.
+
+terraform Plan -Output 
+instance_state                       = (known after apply)
+      + instance_type                        = "t3.micro"
 
