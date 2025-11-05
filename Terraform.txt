@@ -90,3 +90,15 @@ tags = {
     }
 
 I have added the count.index which means when index is 0 then it will create Mongodb. viseversa forother index as well.
+DATE: 05-11-2025
+Till now we have created a three instances for that now we are creating records.
+for that we are using this code https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record
+aws route53 records.
+In route 53.tf we have combined two variables.
+name    = "var.instances[count.index].var.domain"
+we have combined two variables this concept calls Interpolation.
+Interpolation/concatination:
+===========================
+To do concatination of variables we use use ${variable}
+name    = "${var.instances[count.index]}.${var.domain}"
+
