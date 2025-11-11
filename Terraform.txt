@@ -32,6 +32,8 @@ resource "type_of_resource" "name-of-resource" {
 terraform init -> downloads the provider, intialise terraform
 We need to use terraform provider.tf code in our repository then need to use this command .
 you can find the code in https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
+COMMANDS:
+----------
 terraform plan -> It will give us a plan that what it is going to do
 terraform apply -> creates the infra as given in the plan
 terraform apply -auto-approve
@@ -74,9 +76,12 @@ then the variable i have defined as dev so after i have applied the terraform pl
 terraform Plan -Output 
 instance_state                       = (known after apply)
       + instance_type                        = "t3.micro"
-Loop:
-==========
+ Loops
+==========================================================
+count:
+======
 In Terraform there count word which will represents a loop and create multiple environments..
+wheneverwe use count it will give special variable count.index.
 It works with List more frequently.
 SO i have created three instances with different names for that i have done
 i have created a variable.tf
@@ -101,4 +106,61 @@ Interpolation/concatination:
 ===========================
 To do concatination of variables we use use ${variable}
 name    = "${var.instances[count.index]}.${var.domain}"
+
+/*******Session -30 -completed in this sessioon we have create loop,records and instances using that loop.***/
+How to check the output iof resource???
+We can give awsintance.terraform in output.tf file when we give terrafom apply command it will show the output
+which(awsintance.terraform) means type_of_resource.name_of_resource.
+FOR-LOOP:
+=========
+       Count basedd loop are used to itterates list,where as for loops are used for map.
+	   List consists "string values"
+	   Map consists "Key and values"[suppose if you define front-end ="ip-address" here front-end is KEY and ip-address is VALUE]
+	   The for_each meta-argument accepts a map or a set of strings and creates an instance for each item in that map or set.
+	   Map always consists key value pairs.
+	  syntax for map:
+	  -------------
+	      {
+		     key = value
+			 key2=value2
+		   }
+		   
+	      key = value,this entire entry is taken as one each statement so each.key and each.value it will consider whenever for_each itterates.
+		  if we want to declare multiple values we use list but to use it in for_each we need to convert it to string by using  toset() and tomap() or we can use Map.
+		  By using we are converting the list so map need key-value so we are converting the below list to map 
+           		  variable "instances" {
+					default = {
+        mongodb="t3.micro"
+        redis="t3.micro"
+        mysql="t2.micro"
+
+    }
+}
+
+     here terraform sample code from docs
+	 resource "azurerm_resource_group" "rg" {
+  for_each = tomap({
+    a_group       = "eastus"
+    another_group = "westus2"
+  })
+  name     = each.key
+  location = each.value
+}
+
+Our modified code 
+
+resource "aws_instance" "terraform" {
+    ami = "ami-09c813fb71547fc4f"
+	for_each =var.instances
+    instance_type = "t3.micro"
+    vpc_security_group_ids = [aws_security_group.allow_all.id]
+    tags = {
+        Name = "terraform-1"
+        Terraform = "true"
+    }
+}
+NOTE: count is suitable for itterae list we will get count.index
+for_each is good for map we will get eack.key and each.value
+if u want to irrerate list through for_each then we can use
+for_each = toset(list) we ned to call it via each.value
 
