@@ -164,3 +164,37 @@ for_each is good for map we will get eack.key and each.value
 if u want to irrerate list through for_each then we can use
 for_each = toset(list) we ned to call it via each.value
 
+Data Sources:
+==============
+  We can query the existing information in the provider using data sources.
+  Suppose if we give any hardcoded values in tf files if any changes in infrastructure then it will be difficult to 
+  and if terraform run the files it will fail because in background the existing hardcoded values are changed.
+  To avoid this terraform has data sources it will dynamically fetch the information.
+ How Data Sources Work:
+  A data source is declared using a data block, followed by the provider name, the type of data to retrieve,
+  and a local name you assign for referencing it within your configuration.
+    These attributes can be referenced elsewhere in your Terraform configuration using the syntax data.<PROVIDER>_<TYPE>.<NAME>.<ATTRIBUTE>.
+	By using data sources even if any backround changes done it will dynamically pick those changes no need to update manually.
+	 if you want to see the output you can check the output using output in terraform.
+	 output "ami_id" {
+    value = data.aws_ami.joindevops.id
+	the above line will give the full info about existing ami .
+	TIP: Data will give the data of existing resource where as resource will create the data.
+	ex for resource:
+	----------------
+	resource "aws_instance" "terraform" {
+#   for_each =var.instances
+#     ami = data.aws_ami.joindevops.id  # data.<PROVIDER>_<TYPE>.<NAME>.<ATTRIBUTE>.
+#     instance_type = each.value
+#     vpc_security_group_ids = [aws_security_group.allow_all.id]
+#     tags = {
+#         Name = each.key
+#         Terraform = "true"
+#     }
+# }  
+ example for Data:
+ ----------------
+ data "aws_ami" "joindevops" {
+    owners           = ["973714476881"]
+    most_recent      = true
+    }
