@@ -1,0 +1,82 @@
+DOCKER:
+
+ Intially there is front end and backend is avail in one server so difficult in release.
+After that Monolithic came-->Frontend -> Backend(Entire app should be in single programming language)
+Microservices:
+==============
+Catalogue, Cart, Shipping
+API
+every component in diff programming language
+for microservers we dont need application servers.
+if you want port 8080 it will open individually.
+
+for small application suppose a 3MB we don't need any of the 3 mentioned in above.
+To avoid containers came.
+
+Bare Metal Server:
+====================
+Its a similar to individual house..
+If we purchase server we need to install everything and if you dont need the entire space then this is waste.
+
+Def:
+Bare metal servers are dedicated physical machine resources offered by a cloud service provider. 
+The entire machine is dedicated to the ISV. The operating system is loaded directly onto the machine, the ISV’s app runs on that OS,
+ and the app has exclusive access to all the computing resources on that machine.
+ 
+ Virtualiszation:
+ ==================
+ Its like flats ,entire space we segrated to some 100 flats so the space utilisation is more.
+ Virtualisation is means it has hypervisor which will seperate the physical servers into multiple VM's so that there is whatvere space we required we can create VM for that.
+Def:
+Bare metal servers are dedicated physical machine resources offered by a cloud service provider.
+ The entire machine is dedicated to the ISV. The operating system is loaded directly onto the machine, 
+the ISV’s app runs on that OS, and the app has exclusive access to all the computing resources on that machine.
+What is hypervisor?
+Hypervisor is responsible to create a virtual machines(virtual environments which act as a virtal computer it consists their own CPU  it will not break Physical server.)
+Most famous hypervisor are vmware,this entire process called Virtulisation.
+for example.
+
+Containersation
+===================
+Its like a PG. even that small room will be more space utilisation with less downtime.
+Its has coontainers.
+
+Virtulisation	vs		Containerisation
+Costly					Cheaper
+More boot time			less boot time
+more size				less size
+resource utilisation	resource utilisation is more
+is less
+More privacy			Less privacy
+Less portable			More portable
+
+For containersation we are using docker.
+
+How to nstall docker.
+Create one VM/EC2 in Aws.
+Install these commands in that server (mobaxterm)
+TO INSTALL DOCKER USE THESE BELOW COMMANDS.
+https://docs.docker.com/engine/install/rhel/
+
+Whenever we install docker a docker group is created only root user and users inside docker group will have acess to docker cli
+To add ec2-user we need to use the below command.
+sudo usermod -aG docker ec2-user
+exit and login again
+
+[ ec2-user@ip-172-31-20-188 ~ ]$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+Container is nothing But Server.
+
+what is image? why docker is famous.
+
+AMI(Amazon Machine Image) = OS + System Packages + App run time + App code + App libraries -> Amazon machine image
+
+Docker image = Bare minimum OS(10Mb) + System Packages + App run time + App code + App libraries -> Amazon machine image
+500Mb
+
+DOCKER had OS which is bare minimum OS which will  allow very less for Images,thats thereason docker is famous.
+
+Docker commands:
+===============
+
